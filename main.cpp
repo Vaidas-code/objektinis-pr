@@ -7,7 +7,6 @@ struct studentas {
     double vid, med;
     bool random = false;
 };
-
 struct studentai {
     studentas* studentas;
     int dydis;
@@ -32,65 +31,87 @@ void keistiint(int*& array, int dydis) {
 }
 //liepia ivesti varda, pavarde, egzamino ir namu darbu rezultatus
 void pild(studentas* tempas) {
-    int uzkl;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> dist(1, 10);
+    char uzkl;
     cout << "Iveskite varda ir pavarde: ";
     cin >> tempas->vardas >> tempas->pavarde;
     double x, suma = 0;
     int n = 0;
     tempas->paz = NULL;
-    cout << "Iveskite pazymius, kai noresite baigti, parasykite raide arba skaiciu didesni uz 10: " << endl;
-    cin >> x;
-    while (cin.fail() || x <= 0 || x > 10)
-    {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Skaicius privalo buti nuo 1-10" << endl;
-        cin >> x;
+    cout << "Ar norite suzinoti,kokie galutinis pazymys butu generuojant atsitiktinius sk.? Jei taip, irasykite 'y'" << endl;
+    cin >> uzkl;
+    if (uzkl == 'y' || uzkl=='Y') {
+        cout << "Iveskite kiek pazymiu norite sugeneruoti: " << endl;
+        cin >> n;
+        while (cin.fail() || n <= 0)
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Skaicius privalo buti nuo 1-10" << endl;
+            cin >> n;
+        }
+        tempas->paz = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            tempas->paz[i] = dist(gen);
+            suma += tempas->paz[i];
+        }
+        tempas->egz = dist(gen);
+        tempas->vid = suma / n;
+        mediana(tempas, n);
     }
-    tempas->paz = new int[1];
-    tempas->paz[0] = x;
-    suma += x;
-    n++;
-    while (cin >> x && x > 0 && x<=10) {
+    else
+    {
+        cout << "Iveskite pazymius, kai noresite baigti, parasykite raide arba skaiciu didesni uz 10: " << endl;
+        cin >> x;
+        while (cin.fail() || x <= 0 || x > 10)
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Skaicius privalo buti nuo 1-10" << endl;
+            cin >> x;
+        }
+        tempas->paz = new int[1];
+        tempas->paz[0] = x;
+        suma += x;
+        n++;
+        while (cin >> x && x > 0 && x <= 10) {
             suma += x;
             n++;
             keistiint(tempas->paz, n);
             tempas->paz[n - 1] = x;
-    }
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    cout << "Iveskite egzamino paz: " << endl;
-    cin >> tempas->egz;
-    
-    while (tempas->egz < 1 || tempas->egz > 10 || cin.fail())
-    {
+        cout << "Iveskite egzamino paz: " << endl;
+        cin >> tempas->egz;
+
+        while (tempas->egz < 1 || tempas->egz > 10 || cin.fail())
+        {
             cout << "Iveskite skaiciu nuo 1-10" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> tempas->egz;
-    }
-    cout << "Ar norite kad skaiciai butu generuojami? Jei taip, irasykite '1'" << endl;
-    cin >> uzkl;
-    if (uzkl == 1) {
-        srand(time(NULL));
-        tempas->vid = (double)rand() / RAND_MAX * 10;
-        tempas->med = (double)rand() / RAND_MAX * 10;
-    }
-    else if (n > 0) {
-        tempas->vid = 0.4 * (suma / n) + 0.6 * tempas->egz;
+        }
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        tempas->vid = 0.4*(suma / n)+0.6*tempas->egz;
         mediana(tempas, n);
     }
+
 }
-// studentu masyvo keitimas
-void keististruk(studentas*& array, int dydis) {
-    studentas* newArray = new studentas[dydis];
-    for (int i = 0;i < dydis - 1;i++) {
+void keististruk(studentas*& array, int size) {
+    studentas* newArray = new studentas[size];
+    for (int i = 0;i < size - 1;i++) {
         newArray[i] = array[i];
     }
     delete[] array;
     array = newArray;
 }
+
 // atspausdinimas duomenu
 void spausd(studentas* tempas) {
     cout << setw(10) << left << tempas->vardas << setw(15) << left << tempas->pavarde;
@@ -100,7 +121,7 @@ void spausd(studentas* tempas) {
 
 int main() {
     int n = 0;
-    char uzkl=' ';
+    char uzkl = ' ';
     studentai Kursas;
 
     while (uzkl != 'n' && uzkl != 'N') {
