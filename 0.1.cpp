@@ -1,4 +1,4 @@
-﻿#include "Mylib.h"
+#include "Mylib.h"
 
 struct studentas {
 	string vardas, pavarde;
@@ -10,56 +10,63 @@ struct studentas {
 void pild(studentas& tempas) {
 	cout << "Iveskite varda ir pavarde: ";
 	cin >> tempas.vardas >> tempas.pavarde;
-	int x;
-	cout << "Iveskite pazymius, kai noresite baigti, parasykite raide arba skaiciu didesni uz 10: ";
-	cin >> x;
-	while (cin.fail() || x <= 0 || x > 10)
-	{
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "Skaicius privalo buti nuo 1-10" << endl;
-		cin >> x;
-		tempas.paz.push_back(x);
-	}
-	cin >> x;
-	while (cin.fail() || x < 0 || x > 10)
-	{
-		cin.clear();
-		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		cout << "Skaicius privalo buti nuo 1-10" << endl;
-		cin >> x;
-		tempas.paz.push_back(x);
-	}
-	while (cin >> x )
-	{
-		if (x <= 0 || x>10 )
-		{
-			break;
-		}
-		tempas.paz.push_back(x);
-	}
-	cin.clear();
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	cout << "Iveskite egzamino paz: ";
-	cin >> tempas.egz;
-	while (cin.fail() || tempas.egz < 0 || tempas.egz > 10) {
-		cout << "Iveskite skaiciu nuo 1-10" << endl;
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cin >> tempas.egz;
-	}
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> dist(1, 10);
-	cout << "Ar norite kad skaiciai butu generuojami? Jei taip, irasykite '1'," << endl;
+	cout << "Ar norite kad skaiciai butu generuojami? Jei taip, irasykite 'y'," << endl;
 	cout << "jei ne, bet koki kita simboli ar skaiciu" << endl;
-	int uzklausa;
+	char uzklausa;
 	cin >> uzklausa;
-	if (uzklausa == 1)
+	if (uzklausa == 'y')
 	{
-		for (int i = 0; i < tempas.paz.size(); i++)
-			tempas.paz[i] = dist(gen);
+		cout << "Iveskite kiek pazymiu norite sugeneruoti: " << endl;
+		int p;
+		cin >> p;
+		for (int i = 0; i < p; i++) {
+			tempas.paz.push_back(dist(gen));
+		}
 		tempas.egz = dist(gen);
+	}
+	else
+	{
+		int x;
+		cout << "Iveskite pazymius, kai noresite baigti, parasykite raide arba skaiciu didesni uz 10: ";
+		cin >> x;
+		while (cin.fail() || x <= 0 || x > 10)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Skaicius privalo buti nuo 1-10" << endl;
+			cin >> x;
+			tempas.paz.push_back(x);
+		}
+		cin >> x;
+		while (cin.fail() || x < 0 || x > 10)
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << "Skaicius privalo buti nuo 1-10" << endl;
+			cin >> x;
+			tempas.paz.push_back(x);
+		}
+		while (cin >> x)
+		{
+			if (x <= 0 || x > 10)
+			{
+				break;
+			}
+			tempas.paz.push_back(x);
+		}
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Iveskite egzamino paz: ";
+		cin >> tempas.egz;
+		while (cin.fail() || tempas.egz < 0 || tempas.egz > 10) {
+			cout << "Iveskite skaiciu nuo 1-10" << endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin >> tempas.egz;
+		}
 	}
 }
 // apskaiciuoja vidurki
