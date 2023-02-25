@@ -1,8 +1,9 @@
 #include "Mylib.h"
 
+
 struct studentas {
 	string vardas, pavarde;
-	int egz=0;
+	int egz = 0;
 	vector<int> paz;
 };
 
@@ -22,6 +23,14 @@ void pild(studentas& tempas) {
 		cout << "Iveskite kiek pazymiu norite sugeneruoti: " << endl;
 		int p;
 		cin >> p;
+		while (cin.fail() || p < 0)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Skaicius privalo buti didesnis uz 0" << endl;
+			cin >> p;
+			tempas.paz.push_back(p);
+		}
 		for (int i = 0; i < p; i++) {
 			tempas.paz.push_back(dist(gen));
 		}
@@ -98,30 +107,30 @@ double mediana(vector<int>& paz, studentas& tempas) {
 void spausd(studentas& tempas) {
 	cout << left << setw(10) << tempas.vardas << setw(15) << tempas.pavarde;
 	cout << setw(12) << fixed << setprecision(2) << vidurkis(tempas.paz, tempas);
-	cout  << setw(10) << fixed << setprecision(2) << mediana(tempas.paz, tempas) << endl;
+	cout << setw(10) << fixed << setprecision(2) << mediana(tempas.paz, tempas) << endl;
 }
 int main() {
 	vector <studentas> mas;
 	studentas tempasas;
 	char uzkl = 'n';
-		do {
-			pild(tempasas);
-			mas.push_back(tempasas);
-			tempasas.paz.clear();
-			cout << "Baigti darba spausk n, testi - bet koks klavisas: ";
-			cin >> uzkl;
-			if (uzkl == 'n' || uzkl == 'N')
-			{
-				cout << left << setw(10) << "Vardas" << setw(10) << "Pavarde" << setw(20) << "Galutinis (Vid.) / Galutinis (Med.)" << endl;
-				cout << "-----------------------------------------------------------" << endl;
-			}
-
-		} while (uzkl != 'n' && uzkl != 'N');
+	do {
+		pild(tempasas);
+		mas.push_back(tempasas);
+		tempasas.paz.clear();
+		cout << "Baigti darba spausk n, testi - bet koks klavisas: ";
+		cin >> uzkl;
+		if (uzkl == 'n' || uzkl == 'N')
 		{
-			for (auto& i : mas) spausd(i);
-			for (auto& i : mas) i.paz.clear();
+			cout << left << setw(10) << "Vardas" << setw(10) << "Pavarde" << setw(20) << "Galutinis (Vid.) / Galutinis (Med.)" << endl;
+			cout << "-----------------------------------------------------------" << endl;
 		}
 
+	} while (uzkl != 'n' && uzkl != 'N');
+	{
+		for (auto& i : mas) spausd(i);
+		for (auto& i : mas) i.paz.clear();
 	}
 
-	
+}
+
+
