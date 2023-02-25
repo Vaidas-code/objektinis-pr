@@ -45,11 +45,11 @@ void pild(studentas* tempas) {
     if (uzkl == 'y' || uzkl=='Y') {
         cout << "Iveskite kiek pazymiu norite sugeneruoti: " << endl;
         cin >> n;
-        while (cin.fail() || n <= 0)
+        while (cin.fail() || n < 0)
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Skaicius privalo buti nuo 1-10" << endl;
+            cout << "Skaicius privalo buti didesnis uz 0" << endl;
             cin >> n;
         }
         tempas->paz = new int[n];
