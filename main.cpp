@@ -125,18 +125,18 @@ int main() {
     studentai Kursas;
 
     while (uzkl != 'n' && uzkl != 'N') {
-        if (n == 0) { //pati pirma karta bus inicijuojamas masyvas
-            Kursas.studentas = new studentas[1]; //duodame tik viena vieta
-            ++n; //max tampa 1, kad loopas vel nesoktu i if{}
+        if (n == 0) { 
+            Kursas.studentas = new studentas[1]; 
+            ++n; 
             Kursas.dydis = n;
-            pild(&Kursas.studentas[0]); //uzpildome ta viena vieta
+            pild(&Kursas.studentas[0]);
         }
-        else { //visais kitais kartais
-            ++n; //padidiname skaitliuka, (antra karta bus 2)
-            keististruk(Kursas.studentas, n); //padidiname masyva
-            pild(&Kursas.studentas[n - 1]); //uzpildome ta suteikta vieta
+        else { 
+            ++n; 
+            keististruk(Kursas.studentas, n); 
+            pild(&Kursas.studentas[n - 1]); 
         }
-        if (Kursas.studentas[n - 1].paz == NULL) { //leidzia viena karta pabandyti is naujo
+        if (Kursas.studentas[n - 1].paz == NULL) { 
             cout << "Neivedete jokiu studentu duomenu, iveskite is nujo." << endl;
             pild(&Kursas.studentas[n - 1]);
         }
