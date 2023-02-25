@@ -18,7 +18,7 @@ void pild(studentas& tempas) {
 	cout << "jei ne, bet koki kita simboli ar skaiciu" << endl;
 	char uzklausa;
 	cin >> uzklausa;
-	if (uzklausa == 'y')
+	if (uzklausa == 'y' || uzklausa == 'Y')
 	{
 		cout << "Iveskite kiek pazymiu norite sugeneruoti: " << endl;
 		int p;
