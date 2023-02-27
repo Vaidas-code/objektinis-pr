@@ -8,6 +8,7 @@
 #include <numeric>
 #include <limits>
 #include <cctype>
+#include <fstream>
 
 using std::cout;
 using std::cin;
@@ -28,3 +29,5 @@ using std::streamsize;
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
+using std::ifstream;
+using std::sort;
