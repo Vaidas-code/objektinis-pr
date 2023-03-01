@@ -1,5 +1,5 @@
 #include "Mylib.h"
-const char FILENAME[] = "kursiokai.txt";
+const char FILENAME[] = "kursiokai1.txt";
 
 struct studentas {
 	string vardas, pavarde;
@@ -10,6 +10,7 @@ struct studentas {
 //palyginam vardus
 bool palyginti_vardus(const studentas& a, const studentas& b) {
 	return a.vardas < b.vardas;
+
 }
 //skaitymas is failo
 void skait(studentas& tempas, int kiekis, vector<studentas>& mas) {
@@ -18,21 +19,25 @@ void skait(studentas& tempas, int kiekis, vector<studentas>& mas) {
 	ifstream inputFile(FILENAME);
 	// read the first student's data
 	inputFile >> vardas >> pavarde;
-	while (inputFile >> tmp && tmp != "Egz.") {
-		kiekis++;
-	}
-	while (!inputFile.eof()) {
-		inputFile >> tempas.vardas >> tempas.pavarde;
-		for (int i = 0; i < kiekis; i++) {
-			inputFile >> temp;
-			tempas.paz.push_back(temp);
+	string line;
+	getline(inputFile, line);
+		stringstream ss(line);
+		string zodis;
+		while (ss >> zodis) {
+			kiekis++;
 		}
-		inputFile >> tempas.egz;
-		mas.push_back(tempas);
-		tempas.paz.clear();
-	}
+		kiekis--;
+		while (!inputFile.eof()) {
+			inputFile >> tempas.vardas >> tempas.pavarde;
+			for (int i = 0; i < kiekis; i++) {
+				inputFile >> temp;
+				tempas.paz.push_back(temp);
+			}
+			inputFile >> tempas.egz;
+			mas.push_back(tempas);
+			tempas.paz.clear();
+		}
 }
-
 // liepia ivesti varda, pavarde, egzamino ir namu darbu rezultatus
 void pild(studentas& tempas) {
 	cout << "Iveskite varda ir pavarde: ";
@@ -176,6 +181,7 @@ int main() {
 	}
 
 }
+
 
 
 
