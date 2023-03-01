@@ -1,4 +1,7 @@
 #pragma once
+#ifndef HEADER_FILE_2_H
+#define HEADER_FILE_2_H
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -32,5 +35,20 @@ using std::mt19937;
 using std::uniform_int_distribution;
 using std::ifstream;
 using std::sort;
+using std::runtime_error;
+using std::bad_alloc;
+using std::bad_cast;
+using std::bad_typeid;
+using std::bad_exception;
+using std::runtime_error;
+using std::domain_error;
+using std::invalid_argument;
+using std::length_error;
+using std::out_of_range;
+using std::overflow_error;
+using std::range_error;
+using std::underflow_error;
+using std::exception;
 using std::getline;
 using std::stringstream;
+#endif
