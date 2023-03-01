@@ -9,6 +9,7 @@
 #include <limits>
 #include <cctype>
 #include <fstream>
+#include <sstream>
 
 using std::cout;
 using std::cin;
@@ -31,3 +32,5 @@ using std::mt19937;
 using std::uniform_int_distribution;
 using std::ifstream;
 using std::sort;
+using std::getline;
+using std::stringstream;
