@@ -2,6 +2,7 @@
 #ifndef HEADER_FILE_1_H
 #define HEADER_FILE_1_H
 #include "functions.cpp"
+#include <chrono> 
 
 //palyginam vardus
 bool palyginti_vardus(const studentas& a, const studentas& b) {
@@ -30,13 +31,13 @@ void skait(studentas& tempas, int kiekis, vector<studentas>& mas) {
 			inputFile >> tempas.vardas >> tempas.pavarde;
 			for (int i = 0; i < kiekis; i++) {
 				inputFile >> temp;
-				tempas.paz.push_back(temp);
+				tempas.paz.emplace_back(temp);
 			}
 			inputFile >> tempas.egz;
 			if (tempas.paz.size() != kiekis) {
 				throw runtime_error("Klaidingas duomenu formatas: neteisingas elementu skaicius");
 			}
-			mas.push_back(tempas);
+			mas.emplace_back(tempas);
 			tempas.paz.clear();
 		}
 	}
@@ -69,10 +70,10 @@ void pild(studentas& tempas) {
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Skaicius privalo buti didesnis uz 0" << endl;
 			cin >> p;
-			tempas.paz.push_back(p);
+			tempas.paz.emplace_back(p);
 		}
 		for (int i = 0; i < p; i++) {
-			tempas.paz.push_back(dist(gen));
+			tempas.paz.emplace_back(dist(gen));
 		}
 		tempas.egz = dist(gen);
 	}
@@ -87,7 +88,7 @@ void pild(studentas& tempas) {
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Skaicius privalo buti nuo 1-10" << endl;
 			cin >> x;
-			tempas.paz.push_back(x);
+			tempas.paz.emplace_back(x);
 		}
 		cin >> x;
 		while (cin.fail() || x < 0 || x > 10)
@@ -96,7 +97,7 @@ void pild(studentas& tempas) {
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Skaicius privalo buti nuo 1-10" << endl;
 			cin >> x;
-			tempas.paz.push_back(x);
+			tempas.paz.emplace_back(x);
 		}
 		while (cin >> x)
 		{
@@ -104,7 +105,7 @@ void pild(studentas& tempas) {
 			{
 				break;
 			}
-			tempas.paz.push_back(x);
+			tempas.paz.emplace_back(x);
 		}
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -148,5 +149,128 @@ void spausd(studentas& tempas) {
 	cout << left << setw(20) << tempas.vardas << setw(20) << tempas.pavarde;
 	cout << setw(12) << fixed << setprecision(2) << vidurkis(tempas.paz, tempas);
 	cout << setw(10) << fixed << setprecision(2) << mediana(tempas.paz, tempas) << endl;
+}
+
+void sukurti1(studentas& tempas, vector<studentas>& mas) {
+	const char* trinti1 = "sukurtas1.txt";
+	int r1 = remove(trinti1);
+	const char* trinti2 = "sukurtas2.txt";
+	int r2 = remove(trinti2);
+	const char* trinti3 = "sukurtas3.txt";
+	int r3 = remove(trinti3);
+	string tikrinimas;
+	int irasai;
+	auto durationN = std::chrono::microseconds();
+	auto durationR = std::chrono::microseconds(); 
+	auto durationP = std::chrono::microseconds(); 
+	auto durationA = std::chrono::microseconds();
+	vector<studentas> pirmunai;
+	vector<studentas> abejingi;
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dist(1, 10);
+	cout << "Iveskite kiek irasu norite sugeneruoti? Galima rinktis 1000, 10000, 100000, 1000000, 10000000, \n jei norite baigti iveskite 0" << endl;
+	cin >> tikrinimas;
+	auto startS = std::chrono::high_resolution_clock::now();
+	ofstream file1("sukurtas1.txt");
+	auto endS = std::chrono::high_resolution_clock::now();
+	auto durationS = std::chrono::duration_cast<std::chrono::microseconds>(endS - startS);
+	ofstream file2("sukurtas2.txt");
+	ofstream file3("sukurtas3.txt");
+	file1 << left << setw(20) << "Vardas" << setw(21) << "Pavarde" << setw(5) << "ND1" << setw(5) << "ND2" << setw(5) << "ND3" << setw(5) << "ND4" << setw(5) << "ND5" << setw(5) << "EGZ."<< endl;
+	file2 << "Pirmunai: " << endl;
+	file3 << "Abejingi: " << endl;
+	while (tikrinimas != "0") {
+		while (tikrinimas != "1000" && tikrinimas != "10000" && tikrinimas != "100000" && tikrinimas != "1000000" && tikrinimas != "10000000")
+		{
+			cout << "Netinkamas skaicius, iveskite viena is siu skaiciu: 1000, 10000, 100000, 1000000, 10000000" << endl;
+			cin >> tikrinimas;
+		}
+		if (file1.is_open()) {
+			irasai = stoi(tikrinimas);
+			cout << "Failas sukurtas. " << irasai << endl;
+			mas.reserve(irasai);
+			for (int i = 1; i < irasai + 1; i++)
+			{
+				file1 << left  << "Vardas" << setw(14) << i <<  "Pavarde" << setw(14) << i << " ";
+				for (int j = 0; j < 5; j++)
+				{
+					file1 << left << setw(4) << dist(gen) << " ";
+				}
+				file1 << left << setw(4) << dist(gen) << endl;
+			}
+			file1.close();
+			ifstream rfile1("sukurtas1.txt");
+			string linija;
+			getline(rfile1, linija);
+			auto startN = std::chrono::high_resolution_clock::now();
+			for (int i = 1; i < irasai + 1; i++)
+			{
+				rfile1 >> tempas.vardas >> tempas.pavarde;
+				for (int j = 0; j < 5; j++)
+				{
+					int pazymys;
+					rfile1 >> pazymys;
+					tempas.paz.emplace_back(pazymys);
+				}
+				rfile1 >> tempas.egz;
+				tempas.med = mediana(tempas.paz, tempas);
+				tempas.vid = vidurkis(tempas.paz, tempas);
+				mas.emplace_back(move(tempas));
+				tempas.paz.clear();
+			}
+			rfile1.close();
+			auto endN = std::chrono::high_resolution_clock::now();
+			durationN = std::chrono::duration_cast<std::chrono::microseconds>(endN - startN);
+			auto startR = std::chrono::high_resolution_clock::now();
+			for (auto& student: mas )
+			{
+				if (student.vid >= 5)
+				{
+					pirmunai.emplace_back(move(student));
+				}
+				else
+				{
+					abejingi.emplace_back(move(student));
+				}
+
+			}
+			auto endR = std::chrono::high_resolution_clock::now();
+			durationR = std::chrono::duration_cast<std::chrono::microseconds>(endR - startR);
+			auto startP = std::chrono::high_resolution_clock::now();
+			for (auto pirm : pirmunai)
+					file2 << left << setw(20) << pirm.vardas << setw(20) << pirm.pavarde << fixed << setprecision(2) << setw(6) << pirm.vid << pirm.med << endl;
+			auto endP = std::chrono::high_resolution_clock::now();
+			durationP = std::chrono::duration_cast<std::chrono::microseconds>(endP - startP);
+			auto startA = std::chrono::high_resolution_clock::now();
+			for (auto abej : abejingi)
+				file3 << left << setw(20) << abej.vardas << setw(20) << abej.pavarde << fixed << setprecision(2) << setw(6) << abej.vid << abej.med << endl;
+			auto endA = std::chrono::high_resolution_clock::now();
+			durationA = std::chrono::duration_cast<std::chrono::microseconds>(endA - startA);
+		}
+		else {
+			cout << "Nepavyko sukurti failo." << endl;
+			break;
+		}
+		cout << "Jei norite baigti iveskite 0, jei ne bet koki kita skaiciu ar simboli" << endl;
+		cin >> tikrinimas;
+		if (tikrinimas != "0")
+		{
+			cout << "Kiek dabar norite sugeneruoti irasu? ";
+			cin >> tikrinimas;
+		}
+		else
+		{
+			break;
+		}
+	}
+	file2.close();
+	file3.close();
+	cout << endl;
+	cout << left << "Tiek trunka failo sukurimas:             " << durationS.count() / 1000000.0 << " seconds. " << endl;
+	cout << left << "Tiek trunka failo nuskaitymas:           " << durationN.count() / 1000000.0 << " seconds. " << endl; 
+	cout << left << "Tiek trunka studentu rusiavimas:         " << durationR.count() / 1000000.0 << " seconds. " << endl; 
+	cout << left << "Tiek trunka pirmunu irasymas:            " << durationP.count() / 1000000.0 << " seconds. " << endl;
+	cout << left << "Tiek trunka abejingu irasymas:           " << durationA.count() / 1000000.0 << " seconds. " << endl;
 }
 #endif

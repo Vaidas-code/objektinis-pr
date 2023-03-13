@@ -13,6 +13,8 @@
 #include <cctype>
 #include <fstream>
 #include <sstream>
+#include <cstdio>
+#include <chrono>
 
 using std::cout;
 using std::cin;
@@ -51,4 +53,8 @@ using std::underflow_error;
 using std::exception;
 using std::getline;
 using std::stringstream;
+using std::ofstream;
+using std::to_string;
+using std::remove;
+using std::move;
 #endif
