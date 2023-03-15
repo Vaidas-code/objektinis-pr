@@ -1,5 +1,6 @@
 #include "Mylib.h"
 const char FILENAME[] = "kursiokai1.txt";
+#define _CRT_SECURE_NO_WARNINGS
 
 struct studentas {
 	string vardas, pavarde;
