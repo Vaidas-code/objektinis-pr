@@ -2,7 +2,7 @@
 Sugeneruoti trys nauji failai: sukurtas1.txt, sukurtas2.txt, sukurtas3.txt
 Padaryta, taip, kad sukurtas1.txt faile būtų sugeneruojama studento vardas, pavardė, 5 atsitiktiniai namų darbų pažymiai ir atsitiktinis egzamino pažymys
 Šio failo duomenys nuskaitomi, po to apskaičiuojami kiekvieno žmogaus galutiniai vidurkiai, žmogaus kurio galutinis vidurkis yra didesnis už 5 yra įdedamas į vektorių pavadinimu pirmunai, o kiti į vektorių abejingi. Pirmunu vektorius yra atspausdinamas sukurtas2.txt, o abejingų - sukurtas3.txt
-Taip pat apskaičiuojama kiek laiko užtruko tam tikros programos dalys.
+Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus:
 |   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
 | Failo sukurimas  | 0.00051  |  0.00049 |  0.000478 |  0.000507 |  0.000491 |
