@@ -9,7 +9,7 @@ bool palyginti_vardus(const studentas& a, const studentas& b) {
 	return a.vardas < b.vardas;
 }
 bool palyginti_galutinius(const studentas& a, const studentas& b) {
-	return a.vid < b.vid;
+	return a.vid > b.vid;
 }
 //skaitymas is failo
 void skait(studentas& tempas, int kiekis, vector<studentas>& mas) {
@@ -245,7 +245,7 @@ void sukurti1(studentas& tempas, vector<studentas>& mas) {
 			char eil[100];
 			for (auto pirm : pirmunai)
 			{
-				sprintf_s(eil, sizeof(eil), "%20s%20s%6.2f%6.2f\n", pirm.vardas.c_str(), pirm.pavarde.c_str(), pirm.vid, pirm.med);
+				sprintf_s(eil, sizeof(eil), "%-20s%-20s%-6.2f%-6.2f\n", pirm.vardas.c_str(), pirm.pavarde.c_str(), pirm.vid, pirm.med);
 				file2 << eil;
 			}
 			//		file2 << left << setw(20) << pirm.vardas << setw(20) << pirm.pavarde << fixed << setprecision(2) << setw(6) << pirm.vid << pirm.med << endl;
@@ -255,7 +255,7 @@ void sukurti1(studentas& tempas, vector<studentas>& mas) {
 			auto startA = std::chrono::high_resolution_clock::now();
 			for (auto abej : abejingi)
 			{
-				sprintf_s(eil, sizeof(eil), "%20s%20s%6.2f%6.2f\n", abej.vardas.c_str(), abej.pavarde.c_str(), abej.vid, abej.med);
+				sprintf_s(eil, sizeof(eil), "%-20s%-20s%-6.2f%-6.2f\n", abej.vardas.c_str(), abej.pavarde.c_str(), abej.vid, abej.med);
 				file3 << eil;
 			}
 			auto endA = std::chrono::high_resolution_clock::now();
