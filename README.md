@@ -8,5 +8,5 @@ Taip pat apskaičiuojama kiek laiko užtruko tam tikros programos dalys.
 | Failo sukurimas  | 0.00051  |  0.00049 |  0.000478 |  0.000507 |  0.000491 |
 |  Failo nuskaitymas |  0.0214 | 0.2124  | 2.41212  |  23.1465 |  238.4098 |
 |  Studentu rusiavimas | 0.013644  | 0.147524 | 1.33276  |  15.5486 | 164.2036  |
-|  Irasymas |  0.022298 | 0.190802  | 1.88963 |  18.81907 |  191.56154 |
-| Bendras laikas  | 0.057852  |  0.551216 |  5,634988 |  57,514677 |  594,175431 |
+|  Irasymas |  0.008957 | 0.058725  | 0.607937 |  5.88344 |  57.56487 |
+| Bendras laikas  | 0.044511  |  0.419139 |  4,353295 |  44,579047 |  460,178761 |
