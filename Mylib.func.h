@@ -8,6 +8,9 @@
 bool palyginti_vardus(const studentas& a, const studentas& b) {
 	return a.vardas < b.vardas;
 }
+bool palyginti_galutinius(const studentas& a, const studentas& b) {
+	return a.vid < b.vid;
+}
 //skaitymas is failo
 void skait(studentas& tempas, int kiekis, vector<studentas>& mas) {
 	string vardas, pavarde, tmp;
@@ -189,7 +192,7 @@ void sukurti1(studentas& tempas, vector<studentas>& mas) {
 		if (file1.is_open()) {
 			irasai = stoi(tikrinimas);
 			cout << "Failas sukurtas. " << irasai << endl;
-			mas.reserve(irasai);
+			//mas.reserve(irasai);
 			for (int i = 1; i < irasai + 1; i++)
 			{
 				file1 << left  << "Vardas" << setw(14) << i <<  "Pavarde" << setw(14) << i << " ";
@@ -223,6 +226,7 @@ void sukurti1(studentas& tempas, vector<studentas>& mas) {
 			auto endN = std::chrono::high_resolution_clock::now();
 			durationN = std::chrono::duration_cast<std::chrono::microseconds>(endN - startN);
 			auto startR = std::chrono::high_resolution_clock::now();
+			sort(mas.begin(), mas.end(), palyginti_galutinius);
 			for (auto& student: mas )
 			{
 				if (student.vid >= 5)
@@ -238,13 +242,22 @@ void sukurti1(studentas& tempas, vector<studentas>& mas) {
 			auto endR = std::chrono::high_resolution_clock::now();
 			durationR = std::chrono::duration_cast<std::chrono::microseconds>(endR - startR);
 			auto startP = std::chrono::high_resolution_clock::now();
+			char eil[100];
 			for (auto pirm : pirmunai)
-					file2 << left << setw(20) << pirm.vardas << setw(20) << pirm.pavarde << fixed << setprecision(2) << setw(6) << pirm.vid << pirm.med << endl;
+			{
+				sprintf_s(eil, sizeof(eil), "%20s%20s%6.2f%6.2f\n", pirm.vardas.c_str(), pirm.pavarde.c_str(), pirm.vid, pirm.med);
+				file2 << eil;
+			}
+			//		file2 << left << setw(20) << pirm.vardas << setw(20) << pirm.pavarde << fixed << setprecision(2) << setw(6) << pirm.vid << pirm.med << endl;
+
 			auto endP = std::chrono::high_resolution_clock::now();
 			durationP = std::chrono::duration_cast<std::chrono::microseconds>(endP - startP);
 			auto startA = std::chrono::high_resolution_clock::now();
 			for (auto abej : abejingi)
-				file3 << left << setw(20) << abej.vardas << setw(20) << abej.pavarde << fixed << setprecision(2) << setw(6) << abej.vid << abej.med << endl;
+			{
+				sprintf_s(eil, sizeof(eil), "%20s%20s%6.2f%6.2f\n", abej.vardas.c_str(), abej.pavarde.c_str(), abej.vid, abej.med);
+				file3 << eil;
+			}
 			auto endA = std::chrono::high_resolution_clock::now();
 			durationA = std::chrono::duration_cast<std::chrono::microseconds>(endA - startA);
 		}
