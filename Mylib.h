@@ -16,6 +16,22 @@
 #include <cstdio>
 #include <chrono>
 #include <cstdlib>
+#include <chrono> 
+#include <filesystem>
+#include <sstream>
+#include <io.h>
+#include <cstring>
+#include <cerrno>
+#include <fcntl.h>
+#include <sys/stat.h>
+
+#ifdef _WIN32
+#include <io.h> 
+#define access    _access_s
+#else
+#include <unistd.h>
+#endif
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -57,4 +73,5 @@ using std::ofstream;
 using std::to_string;
 using std::remove;
 using std::move;
+namespace st = std;
 #endif
