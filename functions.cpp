@@ -17,3 +17,5 @@ double mediana(vector<int>& paz, studentas& tempas);
 void spausd(studentas& tempas);
 void sukurti1(studentas& tempas, vector<studentas>& mas);
 bool palyginti_galutinius(const studentas& a, const studentas& b);
+void fgeneravimas(int kiekis, string failovardas, double& laikas);
+bool egzistuojantis(const string& filename);
