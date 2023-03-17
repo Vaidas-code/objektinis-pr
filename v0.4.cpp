@@ -4,7 +4,7 @@
 int main() {
 	auto start = std::chrono::high_resolution_clock::now(); 
 	char tikr, tikr1;
-	cout << "Ar norite sugeneruoti faila? Jei taip iveskite 't':" << endl;
+	cout << "Ar norite sugeneruoti faila arba ji skaityti? Jei taip iveskite 't':" << endl;
 	cin >> tikr1;
 	if (tikr1 != 't' && tikr1 != 'T')
 	{
