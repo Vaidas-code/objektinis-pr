@@ -10,7 +10,7 @@ Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant 
 |||||
 | Failo nuskaitymas | 0.031199 | 0.229992 | 2.57409 | 24.8619 | 257.7845 |
 | Studentų rūsiavimas pagal vidurkius | 0.009162 | 0.088798 | 0.93408 | 8.94001 | 90.7895 |
-| Pirmūnų ir abejingų skirstymas | 0.005727 | 0.073684 | 0.666984 | 6.235
+| Pirmūnų ir abejingų skirstymas | 0.005727 | 0.073684 | 0.666984 | 6.235 |
 | Bendras laikas  | 0.046088 | 0.392474 | 4.175150| 40.4369 | 354.809 |
 
 Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant Deque:
