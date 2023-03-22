@@ -5,8 +5,11 @@ Padaryta, taip, kad sukurtas1.txt faile būtų sugeneruojama studento vardas, pa
 Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus:
 |   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
-| Failo sukurimas  | 0.00051  |  0.00049 |  0.000478 |  0.000507 |  0.000491 |
-|  Failo nuskaitymas |  0.0214 | 0.2124  | 2.41212  |  23.1465 |  238.4098 |
-|  Studentu rusiavimas | 0.013644  | 0.147524 | 1.33276  |  15.5486 | 164.2036  |
-|  Irasymas |  0.008957 | 0.058725  | 0.607937 |  5.88344 |  57.56487 |
-| Bendras laikas  | 0.044511  |  0.419139 |  4,353295 |  44,579047 |  460,178761 |
+|||||
+| Failo sukurimas ir generavimas  | 0.038147 | 0.256753 | 2.56139 | 25.367 | 251,8334 |
+| Failo nuskaitymas | 0.024917 | 0.234419 | 2.60287 | 23.9331 | 210.7845 |
+| Studentu rusiavimas pagal vidurkius | 0.010195 | 0.090712 | 0.881442 | 9.63709 | 90.7895 |
+| Pirmūnų ir abejingų rūšiavimas  | 0.005934 | 0.072241 | 0.686834 | 6.818 | 65.1002 |
+| Pirmūnų įrašymas | 0.003517 | 0.033959 | 0.336809 | 3.34304 | 33.7894 |
+| Abejingų įrašymas | 0.002437| 0.023083 | 0.2318 | 2.3688 | 23.487 |
+| Bendras laikas  | 0.074952 | 0.620455 | 6.4197 | 61.83 | 675.784 |
