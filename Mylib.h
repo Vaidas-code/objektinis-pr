@@ -24,13 +24,8 @@
 #include <cerrno>
 #include <fcntl.h>
 #include <sys/stat.h>
-
-#ifdef _WIN32
-#include <io.h> 
-#define access    _access_s
-#else
-#include <unistd.h>
-#endif
+#include <deque>
+#include <list>
 
 using std::cout;
 using std::cin;
@@ -73,5 +68,14 @@ using std::ofstream;
 using std::to_string;
 using std::remove;
 using std::move;
-namespace st = std;
+using std::deque;
+using std::list;
+
+
+#ifdef _WIN32
+#include <io.h> 
+#define access    _access_s
+#else
+#include <unistd.h>
+#endif
 #endif
