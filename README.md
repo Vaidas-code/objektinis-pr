@@ -5,7 +5,7 @@ Apačioje pateikiamas matavimų laikas.
 
 Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant Vector:
 
-|   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
+| Vector  | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
 |||||
 | Failo nuskaitymas | 0.031199 | 0.229992 | 2.57409 | 24.8619 | 257.7845 |
@@ -15,7 +15,7 @@ Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant 
 
 Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant Deque:
 
-|   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
+| Deque  | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
 |||||
 | Failo nuskaitymas | 0.026916 | 0.268572 | 3.07978 | 34.1083 | 362.4897 |
@@ -25,7 +25,7 @@ Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant 
 
 Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant List:
 
-|   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
+| List  | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
 |||||
 | Failo nuskaitymas | 0.030746 | 0.228811 | 2.42725 | 22.8714 | 232.2569 |
