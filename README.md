@@ -8,39 +8,30 @@ Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant 
 |   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
 |||||
-| Failo sukūrimas ir generavimas  | 0.038147 | 0.256753 | 2.56139 | 25.367 | 251,8334 |
-| Failo nuskaitymas | 0.024917 | 0.234419 | 2.60287 | 23.9331 | 210.7845 |
-| Studentų rūsiavimas pagal vidurkius | 0.010195 | 0.090712 | 0.881442 | 9.63709 | 90.7895 |
-| Pirmūnų ir abejingų rūšiavimas  | 0.005934 | 0.072241 | 0.686834 | 6.818 | 65.1002 |
-| Pirmūnų įrašymas | 0.003517 | 0.033959 | 0.336809 | 3.34304 | 33.7894 |
-| Abejingų įrašymas | 0.002437| 0.023083 | 0.2318 | 2.3688 | 23.487 |
-| Bendras laikas  | 0.074952 | 0.620455 | 6.4197 | 61.83 | 675.784 |
+| Failo nuskaitymas | 0.031199 | 0.229992 | 2.57409 | 24.8619 | 257.7845 |
+| Studentų rūsiavimas pagal vidurkius | 0.009162 | 0.088798 | 0.93408 | 8.94001 | 90.7895 |
+| Pirmūnų ir abejingų skirstymas | 0.005727 | 0.073684 | 0.666984 | 6.235
+| Bendras laikas  | 0.046088 | 0.392474 | 4.175150| 40.4369 | 354.809 |
 
 Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant Deque:
 
 |   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
 |||||
-| Failo sukūrimas ir generavimas  | x | x1 | x2 | x3 | x4 |
-| Failo nuskaitymas | x | x1 |x2 | x3 | x4 |
-| Studentų rūsiavimas pagal vidurkius | x | x1 | x2 | x3 | x4 |
-| Pirmūnų ir abejingų rūšiavimas  | x | x1 | x2 | x3 | x4 |
-| Pirmūnų įrašymas | x | x1 | x2 | x3 | x4 |
-| Abejingų įrašymas | x | x1 | x2 | x3 | x4 |
-| Bendras laikas  | x | x1 | x2 | x3 | x4 |
+| Failo nuskaitymas | 0.026916 | 0.268572 | 3.07978 | 34.1083 | 362.4897 |
+| Studentų rūsiavimas pagal vidurkius | 0.011449 | 0.109969 | 1.02035 | 13.3648 | 141.4897 |
+| Pirmūnų ir abejingų skirstymas  | 0.00656 | 0.065672 | 0.690727 | 8.89532 | 95.1287 |
+| Bendras laikas  | 0.044925 | 0.444213 | 4.79086 | 56.3684 | 599.1081 |
 
 Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant List:
 
 |   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
 |||||
-| Failo sukūrimas ir generavimas  | x | x1 | x2 | x3 | x4 |
-| Failo nuskaitymas | x | x1 |x2 | x3 | x4 |
-| Studentų rūsiavimas pagal vidurkius | x | x1 | x2 | x3 | x4 |
-| Pirmūnų ir abejingų rūšiavimas  | x | x1 | x2 | x3 | x4 |
-| Pirmūnų įrašymas | x | x1 | x2 | x3 | x4 |
-| Abejingų įrašymas | x | x1 | x2 | x3 | x4 |
-| Bendras laikas  | x | x1 | x2 | x3 | x4 | 
+| Failo nuskaitymas | 0.030746 | 0.228811 | 2.42725 | 22.8714 | 232.2569 |
+| Studentų rūsiavimas pagal vidurkius | 0.000226 | 0.003286 | 0.051877 | 0.719292 | 6.48965 |
+| Pirmūnų ir abejingų skirstymas  | 0.004719 | 0.059477 | 0.590061 | 5.99157 | 57.12398 |
+| Bendras laikas  | 0.035691 | 0.291574 | 3.06919 | 29.5822 | 295.87053 | 
 
 Sistemos parametrai:
 RAM: 8GB
