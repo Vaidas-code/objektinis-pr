@@ -1,8 +1,8 @@
 # objektinis-pr
-Sugeneruoti trys nauji failai: sukurtas1.txt, sukurtas2.txt, sukurtas3.txt
-Padaryta, taip, kad sukurtas1.txt faile būtų sugeneruojama studento vardas, pavardė, 5 atsitiktiniai namų darbų pažymiai ir atsitiktinis egzamino pažymys
-Šio failo duomenys nuskaitomi, po to apskaičiuojami kiekvieno žmogaus galutiniai vidurkiai, žmogaus kurio galutinis vidurkis yra didesnis už 5 yra įdedamas į vektorių pavadinimu pirmunai, o kiti į vektorių abejingi. Pirmunu vektorius yra atspausdinamas sukurtas2.txt, o abejingų - sukurtas3.txt
-Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus:
+Patobulinta v0.4 versija:
+Apskaičiuojamas laikas kiek trunka tam tikri procesai kaip failo sukūrimas ir generavimas, failo, nuskaitymas, studentų ir abejingų rūšiavimas, pirmūnų įrašymas, abejingų įrašymas ir bendras laikas. Visi jie yra apskaičiuojami naudojant tris skirtingus konteinerius: 1 - vector, 2 - deque, 3 - list.
+Apačioje pateikiamas matavimų laikas.
+Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant Vector:
 |   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
 |---|---|---|---|---|---|
 |||||
@@ -13,3 +13,29 @@ Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus:
 | Pirmūnų įrašymas | 0.003517 | 0.033959 | 0.336809 | 3.34304 | 33.7894 |
 | Abejingų įrašymas | 0.002437| 0.023083 | 0.2318 | 2.3688 | 23.487 |
 | Bendras laikas  | 0.074952 | 0.620455 | 6.4197 | 61.83 | 675.784 |
+Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant Deque:
+|   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
+|---|---|---|---|---|---|
+|||||
+| Failo sukurimas ir generavimas  | x | x1 | x2 | x3 | x4 |
+| Failo nuskaitymas | x | x1 |x2 | x3 | x4 |
+| Studentu rusiavimas pagal vidurkius | x | x1 | x2 | x3 | x4 |
+| Pirmūnų ir abejingų rūšiavimas  | x | x1 | x2 | x3 | x4 |
+| Pirmūnų įrašymas | x | x1 | x2 | x3 | x4 |
+| Abejingų įrašymas | x | x1 | x2 | x3 | x4 |
+| Bendras laikas  | x | x1 | x2 | x3 | x4 |
+Laikas sekundėmis, kurį užtruko programa darant tam tikrus dalykus naudojant List:
+|   | 1000  | 10000  | 100000  | 1000000  | 10000000  |
+|---|---|---|---|---|---|
+|||||
+| Failo sukurimas ir generavimas  | x | x1 | x2 | x3 | x4 |
+| Failo nuskaitymas | x | x1 |x2 | x3 | x4 |
+| Studentu rusiavimas pagal vidurkius | x | x1 | x2 | x3 | x4 |
+| Pirmūnų ir abejingų rūšiavimas  | x | x1 | x2 | x3 | x4 |
+| Pirmūnų įrašymas | x | x1 | x2 | x3 | x4 |
+| Abejingų įrašymas | x | x1 | x2 | x3 | x4 |
+| Bendras laikas  | x | x1 | x2 | x3 | x4 |
+Sistemos parametrai:
+RAM: 8GB
+CPU: Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz   2.30 GHz
+SSD: 512 GB
