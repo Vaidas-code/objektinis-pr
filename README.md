@@ -73,6 +73,8 @@ Deque, list, vector konteinerius naudojančios programos padarytos atskiruose fa
 | Pirmūnų ir abejingų skirstymas naudonant pirmą strategiją | 0.005413 | 0.053223 | 0.568018 | 6.15839 | 60.73289 |
 | Pirmūnų ir abejingų skirstymas naudonant antrą strategiją | 0.002226 | 0.025487 | 0.254313 | 2.80341 | 27.43984 |
 
+1 strategijos naudojama atmintis 10000000 failam nuo 2GB iki 2.5GB 
+2 strategijos naudojama atmintis 10000000 failam nuo 1.4GB iki 1.9GB
 Kaip matome iš rezultatų - antra strategija yra efektyvesnė.
 
 Naudojimosi instrukcija:
